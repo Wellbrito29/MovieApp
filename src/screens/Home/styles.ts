@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import theme from '@/theme';
 import SearchBar from 'react-native-dynamic-search-bar';
 import Fonts from '@constants/fonts';
+
 export const Container = styled.View`
   width: 100%;
   height: 100%;

@@ -11,8 +11,8 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor="white"
-      barStyle={{backgroundColor: '#44aaff'}}>
+      activeColor="#FF1493"
+      barStyle={{backgroundColor: '#19191a'}}>
       <Tab.Screen
         name="Home"
         component={HomeStack}
