@@ -9,5 +9,6 @@ export default {
     background: '#15202B',
     black2: '#0d0d0d',
     red: '#ff3333',
+    pink: '#FF1493',
   },
 };
