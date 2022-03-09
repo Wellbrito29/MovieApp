@@ -7,14 +7,14 @@ export enum RequesterMethodEnum {
 }
 
 interface Services {
-  getRandomMovies: RequesterServiceModel;
+  getTopMovies: RequesterServiceModel;
   getMovieDetails: RequesterServiceModel;
 }
 
 export const services: Services = {
-  getRandomMovies: {
+  getTopMovies: {
     method: RequesterMethodEnum.GET,
-    endpoint: '',
+    endpoint: 'top_rated?api_key=8f734c78d43475af7e46512d40fe4d20',
   },
   getMovieDetails: {
     method: RequesterMethodEnum.GET,
