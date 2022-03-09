@@ -20,22 +20,35 @@ const {width: screenWidth} = Dimensions.get('window');
 
 const Home = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
   async function FetchData() {
-    const service = {
+    const serviceTopMovie = {
       ...services.getTopMovies,
       endpoint: services.getTopMovies.endpoint,
     };
-    const result: RequesterResponseModel = await requester(service);
+    const servicePopularMovie = {
+      ...services.getPopularMovies,
+      endpoint: services.getPopularMovies.endpoint,
+    };
 
-    setTopRatedMovies(result.data.results);
+    const [resultTopMovie, resultPopularMovie]: [
+      RequesterResponseModel,
+      RequesterResponseModel,
+    ] = [
+      await requester(serviceTopMovie),
+      await requester(servicePopularMovie),
+    ];
+
+    setTopRatedMovies(resultTopMovie.data.results);
+    setPopularMovies(resultPopularMovie.data.results);
   }
 
   useEffect(() => {
     FetchData();
   }, []);
 
-  console.log(topRatedMovies[0]);
+  console.log(popularMovies[0]);
   const renderItem = (
     {item, index}: {item: any; index: number},
     parallaxProps: any,
