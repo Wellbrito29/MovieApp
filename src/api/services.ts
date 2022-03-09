@@ -18,6 +18,6 @@ export const services: Services = {
   },
   getMovieDetails: {
     method: RequesterMethodEnum.GET,
-    endpoint: '',
+    endpoint: '{{movie_id}}?',
   },
 };
