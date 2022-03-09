@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import Fonts from '../../constants/fonts';
+import Fonts from '@constants/fonts';
 
 const Details = () => {
   return (

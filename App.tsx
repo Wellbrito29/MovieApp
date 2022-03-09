@@ -12,10 +12,11 @@ import React from 'react';
 import {StatusBar, LogBox} from 'react-native';
 import Navigation from './src/navigation';
 
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+]);
+
 const App = () => {
-  LogBox.ignoreLogs([
-    "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
-  ]);
   return (
     <>
       <StatusBar barStyle={'light-content'} />

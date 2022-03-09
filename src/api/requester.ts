@@ -1,6 +1,6 @@
 import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
 
-import requesterConfig from './configRequester';
+import requesterConfig from '@api/configRequester';
 
 export const requester: any = async (
   service: RequesterServiceModel,
