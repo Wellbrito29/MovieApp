@@ -2,7 +2,6 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import HomeStack from './homeStack';
 import Favorites from '../screens/Favorites';
 import {TabText} from './styles';
