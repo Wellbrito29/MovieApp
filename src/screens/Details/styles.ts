@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import theme from '@/theme';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fonts from '@constants/fonts';
-
+import {ImageBackground} from 'react-native';
 export const CardContainer = styled.View`
   height: 600px;
   background-color: ${({}) => theme.colors.background};
@@ -34,6 +34,18 @@ export const MovieYearContainer = styled.View`
   align-items: center;
   justify-content: center;
   margin-top: 5px;
+`;
+
+export const ImageBackGround = styled(ImageBackground).attrs({
+  resizeMode: 'cover',
+})`
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px black;
+  overflow: hidden;
+  justify-content: space-between;
+  flex-direction: column;
 `;
 
 export const IconHeartContainer = styled.Pressable`

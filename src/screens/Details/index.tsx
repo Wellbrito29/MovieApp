@@ -7,7 +7,6 @@ import {services} from '@api/services';
 import {requester} from '@api/requester';
 import {ApplicationState, saveListMovie} from '@/redux';
 import {useDispatch, useSelector} from 'react-redux';
-import {ImageHeaderScrollView} from 'react-native-image-header-scroll-view';
 import {
   Container,
   CardContainer,
@@ -22,6 +21,7 @@ import {
   TopicTextCount,
   TopicTitleTextIcon,
   TitleIconContainer,
+  ImageBackGround,
 } from './styles';
 
 type MovieDetailsNavigationProp = StackNavigationProp<MainParamList, 'Details'>;
@@ -111,19 +111,15 @@ const Details = ({navigation, route}: MovieDetailsProps) => {
 
   return (
     <Container>
-      <ImageHeaderScrollView
-        maxHeight={300}
-        minHeight={100}
-        headerImage={{
+      <ImageBackGround
+        source={{
           uri: `https://image.tmdb.org/t/p/original${movie?.backdrop_path}`,
-        }}
-        renderForeground={() => (
-          <IconContainer onPress={() => navigation.goBack()}>
-            <Icon name="arrow-left-circle" />
-          </IconContainer>
-        )}>
-        <MainContainer />
-      </ImageHeaderScrollView>
+        }}>
+        <IconContainer onPress={() => navigation.goBack()}>
+          <Icon name="arrow-left-circle" />
+        </IconContainer>
+      </ImageBackGround>
+      <MainContainer />
     </Container>
   );
 };
