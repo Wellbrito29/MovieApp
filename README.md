@@ -1,4 +1,4 @@
-## 📱 App
+## 📱 App Vai Movie
 
 <div style="flex-direction: row;">
   <img src="https://i.imgur.com/jJ8l6dI.png" width="224px;" height="487px;" alt="App VaiMovie"/>
