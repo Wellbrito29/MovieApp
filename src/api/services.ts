@@ -23,6 +23,6 @@ export const services: Services = {
   },
   getMovieDetails: {
     method: RequesterMethodEnum.GET,
-    endpoint: '{{movie_id}}?',
+    endpoint: '{{id}}?api_key=8f734c78d43475af7e46512d40fe4d20',
   },
 };

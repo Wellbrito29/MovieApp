@@ -12,6 +12,6 @@ export type TabsParamList = {
 export type MainParamList = {
   Main: NavigatorScreenParams<TabsParamList>;
   Details: {
-    id: number;
+    id: string;
   };
 };

@@ -16,7 +16,7 @@ export const SearchContainer = styled.View`
 `;
 
 export const SearchBarComponent = styled(SearchBar).attrs({
-  placeholder: 'Search',
+  placeholder: 'Search movie by name or year',
   darkMode: true,
   textInputStyle: {
     fontFamily: Fonts.Roboto_Medium,
