@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import theme from '@/theme';
 import SearchBar from 'react-native-dynamic-search-bar';
 import Fonts from '@constants/fonts';
+import {ImageBackground, FlatList} from 'react-native';
 
 export const Container = styled.View`
   width: 100%;
@@ -47,6 +48,13 @@ export const TopMovieText = styled.Text`
   color: ${({}) => theme.colors.white};
 `;
 
+export const TopMovieTextContainer = styled.View`
+  width: 90%;
+  position: absolute;
+  bottom: 20px;
+  justify-content: center;
+`;
+
 export const PopularMovieText = styled.Text`
   font-family: ${Fonts.Roboto_Bold};
   font-size: 24px;
@@ -69,4 +77,29 @@ export const CarouselContainer = styled.View`
 export const MainScroll = styled.ScrollView`
   flex: 1;
   background-color: ${({}) => theme.colors.background};
+`;
+
+export const CardPopularMovie = styled(ImageBackground).attrs({
+  resizeMode: 'cover',
+})`
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 5px 5px 15px black;
+  overflow: hidden;
+`;
+
+export const MovieFlatList = styled(FlatList).attrs({
+  showsVerticalScrollIndicator: false,
+  numColumns: 2,
+})`
+  margin-top: 20px;
+`;
+
+export const MovieCardWrapper = styled.Pressable`
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
 `;

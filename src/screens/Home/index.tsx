@@ -12,6 +12,10 @@ import {
   CarouselTitleContainer,
   PopularMovieText,
   MainScroll,
+  CardPopularMovie,
+  MovieFlatList,
+  TopMovieTextContainer,
+  MovieCardWrapper,
 } from './styles';
 import {services} from '@api/services';
 import {requester} from '@api/requester';
@@ -47,6 +51,22 @@ const Home = () => {
   useEffect(() => {
     FetchData();
   }, []);
+
+  const renderItemMovies = ({item, index}: {item: any; index: number}) => {
+    return (
+      <MovieCardWrapper>
+        <CardPopularMovie
+          key={index}
+          source={{
+            uri: `https://image.tmdb.org/t/p/original${item.backdrop_path}`,
+          }}>
+          <TopMovieTextContainer>
+            <TopMovieText>{item.title}</TopMovieText>
+          </TopMovieTextContainer>
+        </CardPopularMovie>
+      </MovieCardWrapper>
+    );
+  };
 
   console.log(popularMovies[0]);
   const renderItem = (
@@ -94,6 +114,7 @@ const Home = () => {
           />
         </CarouselContainer>
         <PopularMovieText>Movies</PopularMovieText>
+        <MovieFlatList data={popularMovies} renderItem={renderItemMovies} />
       </Container>
     </MainScroll>
   );
