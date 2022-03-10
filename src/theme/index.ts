@@ -10,5 +10,6 @@ export default {
     black2: '#0d0d0d',
     red: '#ff3333',
     pink: '#FF1493',
+    purple: '#9b59b6',
   },
 };

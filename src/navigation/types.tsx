@@ -10,8 +10,8 @@ export type TabsParamList = {
 };
 
 export type MainParamList = {
-  Principal: NavigatorScreenParams<TabsParamList>;
-  MovieDetails: {
+  Main: NavigatorScreenParams<TabsParamList>;
+  Details: {
     id: number;
   };
 };

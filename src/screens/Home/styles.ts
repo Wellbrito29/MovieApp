@@ -48,6 +48,14 @@ export const TopMovieText = styled.Text`
   color: ${({}) => theme.colors.white};
 `;
 
+export const EmptyMovieText = styled.Text`
+  font-family: ${Fonts.Roboto_Bold};
+  font-size: 24px;
+  align-self: center;
+  color: ${({}) => theme.colors.white};
+  margin-top: 40px;
+`;
+
 export const TopMovieTextContainer = styled.View`
   width: 90%;
   position: absolute;
@@ -102,4 +110,8 @@ export const MovieCardWrapper = styled.Pressable`
   padding: 5px;
   align-items: center;
   justify-content: center;
+`;
+
+export const MovieTopCardWrapper = styled.Pressable`
+  flex: 1;
 `;
