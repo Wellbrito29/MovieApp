@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
-import Fonts from '@constants/fonts';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {MainParamList} from '@/navigation/types';
 import {RouteProp} from '@react-navigation/native';
 import {services} from '@api/services';
 import {requester} from '@api/requester';
+import {ApplicationState, saveListMovie} from '@/redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {ImageHeaderScrollView} from 'react-native-image-header-scroll-view';
 import {
   Container,
@@ -39,24 +39,52 @@ interface ParamsProps {
 const Details = ({navigation, route}: MovieDetailsProps) => {
   const {id}: ParamsProps = route.params;
   const [movie, setMovie] = useState<any>({});
-
+  const [userSaved, setUserSaved] = useState(false);
+  const dispatch = useDispatch();
+  const {saveMovie} = useSelector(
+    (state: ApplicationState) => state.saveMovieReducer,
+  );
   async function FetchData() {
     const service = {
       ...services.getMovieDetails,
       endpoint: services.getMovieDetails.endpoint.replace('{{id}}', id),
     };
-    console.log(service.endpoint);
 
     const result: RequesterResponseModel = await requester(service);
-    console.log(result.data);
     setMovie(result.data);
+
+    const userSavedMovie = checkIfSaved();
+    setUserSaved(userSavedMovie);
   }
 
   useEffect(() => {
     FetchData();
   }, []);
 
-  console.log(movie);
+  const handlePressFavorite = () => {
+    const nextAction = !userSaved;
+    setUserSaved(nextAction);
+
+    if (nextAction) {
+      const checkIfAlreadExist = checkIfSaved();
+      if (!checkIfAlreadExist) {
+        dispatch(saveListMovie([...saveMovie, movie]));
+      }
+    } else {
+      const checkIfAlreadExist = checkIfSaved();
+      if (checkIfAlreadExist) {
+        let filtered = saveMovie.filter((item: any) => {
+          return item.id !== id;
+        });
+        dispatch(saveListMovie(filtered));
+      }
+    }
+  };
+
+  function checkIfSaved() {
+    const isSaved = saveMovie.find((item: any) => item.id === id);
+    return isSaved ? true : false;
+  }
 
   const MainContainer = () => {
     return (
@@ -69,8 +97,8 @@ const Details = ({navigation, route}: MovieDetailsProps) => {
         </MovieYearContainer>
         <TitleIconContainer>
           <TopicTitleTextIcon>OverView</TopicTitleTextIcon>
-          <IconHeartContainer>
-            <Icon name="heart" />
+          <IconHeartContainer onPress={handlePressFavorite}>
+            <Icon name={userSaved ? 'heart' : 'heart-outline'} />
           </IconHeartContainer>
         </TitleIconContainer>
         <TopicText>{movie?.overview}</TopicText>

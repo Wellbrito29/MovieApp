@@ -1,16 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import {StatusBar, LogBox} from 'react-native';
 import Navigation from './src/navigation';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import {store, persistor} from './src/redux';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -19,15 +12,17 @@ LogBox.ignoreLogs([
 
 const App = () => {
   return (
-    <>
-      <StatusBar
-        barStyle={'dark-content'}
-        backgroundColor="transparent"
-        translucent
-      />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <StatusBar
+          barStyle={'dark-content'}
+          backgroundColor="transparent"
+          translucent
+        />
 
-      <Navigation />
-    </>
+        <Navigation />
+      </PersistGate>
+    </Provider>
   );
 };
 

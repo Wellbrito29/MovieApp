@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@freakycoder/react-native-bounceable": "^0.2.5",
+    "@react-native-async-storage/async-storage": "^1.16.1",
     "@react-navigation/material-bottom-tabs": "^6.1.1",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/stack": "^6.1.1",
@@ -29,6 +30,10 @@
     "react-native-snap-carousel": "^3.9.1",
     "react-native-spinkit": "^1.5.1",
     "react-native-vector-icons": "^9.1.0",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

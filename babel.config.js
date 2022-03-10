@@ -23,6 +23,7 @@ module.exports = {
           '@screens': './src/screens',
           '@constants': './src/constants',
           '@theme': './src/theme/theme',
+          '@redux': './src/redux',
         },
       },
     ],
