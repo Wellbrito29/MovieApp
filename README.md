@@ -17,7 +17,7 @@ Check the requirements:
 For Run The `VaiMovie`, follow the steps:
 
 1. `download` or `clone` the repo.
-   2.run `npm install` or `yarn install` in root to install de dependecies.
-2. IOS: run `cd ios && pod install && cd ..`
-3. Run Android: `npx react-native run-android` or `yarn run android`.
-4. Run IOS: `npx react-native run-ios` or `yarn run ios`.
+2. run `npm install` or `yarn install` in root to install de dependecies.
+3. IOS: run `cd ios && pod install && cd ..`
+4. Run Android: `npx react-native run-android` or `yarn run android`.
+5. Run IOS: `npx react-native run-ios` or `yarn run ios`.
